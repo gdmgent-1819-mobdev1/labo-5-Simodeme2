@@ -116,6 +116,13 @@ button {
     color: var(--color-secondary);
 }
 
+<<<<<<< HEAD
+=======
+.create__post {
+    display: none;
+}
+
+>>>>>>> origin/master
 .posts {
     display: flex;
     flex-wrap: wrap;

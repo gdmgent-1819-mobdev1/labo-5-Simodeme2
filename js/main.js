@@ -10,6 +10,10 @@ var config = {
 firebase.initializeApp(config);
 
 let createPostBtn = document.getElementById('createPostBtn');
+<<<<<<< HEAD
+=======
+let deletePostBtn = document.getElementById('deleteBtn');
+>>>>>>> origin/master
 let signup = document.getElementById('signup');
 let login = document.getElementById('login');
 let signOut = document.getElementById('signout');
@@ -24,7 +28,12 @@ function onSignUp() {
     firebase.auth().createUserWithEmailAndPassword(email, password)
     .then(() => {
         console.log("Success");
+<<<<<<< HEAD
         // createNotification(`Rocket League`, `fdlksfgkldfg`);
+=======
+        createNotification(`Geregistreerd`, `Welkom op de website!`);
+        window.location.replace('../index.html');
+>>>>>>> origin/master
     })
     .catch(err => {
         error.innerHTML = err.message; 
@@ -37,7 +46,11 @@ function onLogIn() {
     firebase.auth().signInWithEmailAndPassword(email, password)
     .then(() => {
         console.log("Success");
+<<<<<<< HEAD
         // createNotification(`Logged in`, `fdlksfgkldfg`);
+=======
+        createNotification(`Ingelogd`, `U bent succesvol ingelogd`);
+>>>>>>> origin/master
         window.location.replace('../index.html');
     })
     .catch(err => {
@@ -48,6 +61,10 @@ function onLogIn() {
 function passwordReset() {
     firebase.auth().sendPasswordResetEmail(recoverPassword.value).then(() => {
         console.log("Password Reset email send"); 
+<<<<<<< HEAD
+=======
+        window.location.replace('../index.html');
+>>>>>>> origin/master
     }).catch(function(err) {
         console.log(err.message);
         error.innerHTML = err.message; 
@@ -68,16 +85,29 @@ function checkUser() {
     let signUpNav = document.getElementById('signUpNav');
     let signOutNav = document.getElementById('signOutNav');
     let userName = document.querySelector('.username');
+<<<<<<< HEAD
+=======
+    let editor = document.querySelector('.create__post');
+>>>>>>> origin/master
 
     firebase.auth().onAuthStateChanged((user) => {
         if(user) {
             console.log('Currently logged in user: ', user);
             user.displayName ? userName.innerHTML = `Welkom ${user.displayName}` : userName.innerHTML = `Welkom ${user.email}`;
+<<<<<<< HEAD
+=======
+            
+            editor.style.display     = "block";
+>>>>>>> origin/master
             userName.style.display   = "block";
             signOutNav.style.display = "block";
             loginNav.style.display   = "none";
             signUpNav.style.display  = "none";
         } else {
+<<<<<<< HEAD
+=======
+            editor.style.display     = "none";
+>>>>>>> origin/master
             userName.style.display   = "none";
             signOutNav.style.display = "none";
             loginNav.style.display   = "block";
@@ -123,14 +153,53 @@ function loadPosts() {
                     <p class="posts__author">${ post.author }</p>
                     <p class="posts__time">${ post.time }</p>
                 </div>
+<<<<<<< HEAD
+=======
+                <p id="deleteBtn" data-id=${ post.id }>Delete post</p>
+>>>>>>> origin/master
             </div> 
             `;
         });
     });
 }
 
+<<<<<<< HEAD
 window.addEventListener('load', () => {
     CKEDITOR.replace('editor');
+=======
+function deletePost(id) {
+    firebase.database().ref().child('posts/' + id).remove();   
+}
+
+(() => {
+    if('Notification' in window) {
+        if(Notification && Notification.permission === 'default') {
+            Notification.requestPermission((permission) => {
+                if(!('permission' in Notification)) {
+                    Notification.permission = permission;
+                }
+            })
+        }  
+    } 
+})();
+
+function createNotification(title, text) {
+    if(Notification.permission === 'granted') {
+        const body = {
+            body: text
+        }
+        const notification = new Notification(title, body);
+
+        setTimeout(notification.close.bind(notification), 5000);
+    }
+}
+
+window.addEventListener('load', () => {
+    if(document.getElementById('editor')) {
+        CKEDITOR.replace('editor');
+    }
+
+>>>>>>> origin/master
     checkUser();
     loadPosts();
 });
@@ -142,6 +211,19 @@ if(createPostBtn) {
     });
 }
 
+<<<<<<< HEAD
+=======
+if(deletePostBtn) {
+    deletePostBtn.addEventListener('click', (e) => {
+        console.log('click');
+        e.preventDefault();
+        const id = deletePostBtn.getAttribute('data-id');
+        console.log(id);
+        deletePost(id);   
+    });
+}
+
+>>>>>>> origin/master
 if(signup) {
     signup.addEventListener('click', (e) => {
         e.preventDefault();
@@ -170,6 +252,7 @@ if(recoverPassword) {
     });
 }
 
+<<<<<<< HEAD
 
 
 
@@ -211,3 +294,5 @@ if(recoverPassword) {
 // if(isSupported) {
 //     reqPerms();
 // }
+=======
+>>>>>>> origin/master
