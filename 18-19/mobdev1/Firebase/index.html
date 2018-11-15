@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Firebase | Auth</title>
+    <!-- CKEditor -->
+    <script src="https://cdn.ckeditor.com/4.10.1/standard/ckeditor.js"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <h4 class="nav__brand"><a href="#">Blogger</a></h4>
+                <ul class="nav__items">
+                    <li class="nav__item" id="signUpNav"><a href="pages/signup.html">Registreren</a></li>
+                    <li class="nav__item" id="loginNav"><a href="pages/login.html">Login</a></li>
+                    <li class="nav__item username"></li>
+                    <li class="nav__item" id="signOutNav"><a href="#" id="signout">Uitloggen</a></li>  
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="container">
+        <div class="create__post">
+            <h1>Maak een post</h1>
+            <form>
+                <div class="form__field">
+                    <input type="text" name="title" id="title" placeholder="Titel van je post" required>
+                </div>
+                <textarea name="editor" id="editor" rows="10" cols="80" required></textarea>
+                <button class="create_post" id="createPostBtn">Create Post</button>
+            </form>
+        </div>
+        <div class="posts">
+            <!-- BLOG POSTS -->
+        </div>
+        <div class="error">
+            <p class="error__text"></p>
+        </div>
+    </div>  
+
+    <!-- Firebase Services -->
+    <script src="https://www.gstatic.com/firebasejs/5.5.6/firebase.js"></script>
+    <!-- Main JS -->
+    <script src="js/main.js"></script>
+</body>
+</html>

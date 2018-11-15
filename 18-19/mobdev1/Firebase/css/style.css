@@ -1,0 +1,157 @@
+:root {
+    --color-primary: #f8b500;
+    --color-secondary: #393e46;
+    --color-background: #fbf9fa;
+    --color-text: #2b2024;
+    --main-spacing: 16px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body{
+    background-color: var(--color-background);
+    font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+    margin: 32px 0;
+    color: var(--color-secondary);
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-primary);
+}
+
+button {
+    background-color: var(--color-primary);
+    margin-top: var(--main-spacing);
+    width: 100%;
+    padding: 15px;
+    border-radius: 5px;
+    color: white;
+    font-size: 10pt;
+    border: none;
+}
+
+.header {
+    background-color: var(--color-secondary);
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav__items {  
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    list-style: none;
+}
+
+.nav__brand {
+    padding: 16px;
+    color: var(--color-background);
+}
+
+.nav__item {
+    padding: 16px; 
+}
+
+.nav__item > a {
+    color: var(--color-background);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 1240px;
+    margin: 0 auto;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    margin: 0 auto;
+}
+
+.form__field {
+    display: flex;
+    width: 100%;
+    margin-bottom: var(--main-spacing);
+    background-color: #e7e4e4;
+    border-radius: 5px;
+}
+
+.form__field > input {
+    width: 100%;
+    padding: var(--main-spacing);
+    outline: none;
+    border: none;
+    background: none;
+}
+
+.form__field > img {
+    width: 25px;
+    height: 25px;
+    margin: 8px 0 0 8px;
+}
+
+.error {
+    color: var(--color-secondary);
+}
+
+.username {
+    display: none;
+    color: var(--color-background);
+}
+
+.form__title{
+    color: var(--color-secondary);
+}
+
+.posts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 25px;
+    color: var(--color-secondary);
+}
+
+.posts__card {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 calc(33% - var(--main-spacing));
+    background-color: #e7e4e4;
+    margin-bottom: 25px;
+    padding: 25px;
+    max-width: calc(33% - var(--main-spacing));
+}
+
+.posts__title {
+    margin-bottom: 32px;
+}
+
+.posts__body {
+    margin-bottom: 32px;
+    overflow: hidden;
+}
+
+.posts__meta {
+    display: flex;
+    flex-direction: row;
+}
+
+.posts__author {
+    font-size: 9pt;
+}
+
+.posts__time {
+    font-size: 9pt;
+}
